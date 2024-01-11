@@ -5,7 +5,6 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { useContext } from 'react'
 import { ModalContext } from '../context/ModalContext'
-import { useState } from 'react'
 export const Presentation = () => {
     const { IsOpen, setIsOpen, openModal, ShowHide } = useContext(ModalContext)
 
@@ -21,7 +20,7 @@ export const Presentation = () => {
                 </div>
             </div>
             <div className='presentation'>
-                <img src="src\img\porfile.jpg" alt="my_porfile_photo" />
+                <img src="src/img/porfile.jpg" alt="my_porfile_photo" />
                 <div>
                     <h1>Hi, i'm Alejandro Hernandez</h1>
                     <h2>a Junior front-end developer</h2>
