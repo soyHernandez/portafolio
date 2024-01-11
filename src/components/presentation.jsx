@@ -5,14 +5,16 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { useContext } from 'react'
 import { ModalContext } from '../context/ModalContext'
+import { useState } from 'react'
 export const Presentation = () => {
     const { IsOpen, setIsOpen, openModal, ShowHide } = useContext(ModalContext)
+
     return (
         <>
             <div className='rrss'>
-                <button><a href="">Download CV</a></button>
+                <button><a href="src\pdf\cv_alejandro_hernandez.pdf" target="_blank" rel="noopener noreferrer">Download CV</a></button>
                 <div className='ico-container'>
-                    
+
                     <div className='ico-rrss' ><a href="https://www.linkedin.com/in/soyhernandez" target='blank'><FontAwesomeIcon icon={faLinkedin} /></a></div>
                     <div className='ico-rrss' ><a href="https://github.com/soyHernandez" target='blank'><FontAwesomeIcon icon={faGithub} /></a></div>
                     <div className='ico-rrss' onClick={openModal}><FontAwesomeIcon icon={faEnvelope} /></div>
