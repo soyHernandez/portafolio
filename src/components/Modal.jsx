@@ -90,7 +90,7 @@ export const Modal = ({setIsOpen }) => {
             <p className='btn-closed' onClick={closeModal}>❌</p>
             <h2 className='contact-title'>contact me</h2>
             <div className='form-container'>
-            <img src="src\img\typewrite.svg" alt="send email" />
+            <img src="src\img\typewrite.svg" type="image/svg+xml" alt="send email" />
             <form method='post' ref={form} >
                     <input name="user_name" id='name' required value={Name} onChange={saveChange} type="text"  placeholder='Name and last name' />
                     <input name="user_email" id='email' required value={Email} onChange={saveChange} type="email" placeholder='Email address' />

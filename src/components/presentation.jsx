@@ -20,10 +20,10 @@ export const Presentation = () => {
                 </div>
             </div>
             <div className='presentation'>
-                <img src="src/img/porfile.jpg" alt="my_porfile_photo" />
+                <img  type="image/svg+xml" src="src/img/porfile.jpg" alt="my_porfile_photo" />
                 <div>
                     <h1>Hi, i'm Alejandro Hernandez</h1>
-                    <h2>a Junior front-end developer</h2>
+                    <h2>front-end developer</h2>
                 </div>
             </div>
             <div>

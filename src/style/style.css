@@ -172,8 +172,10 @@ h2 {
 }
 
 .proyects-body {
+    justify-content: space-between;
+    flex-wrap: wrap;
     height: auto;
-    min-height: 400px;
+    min-height: 600px;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -182,28 +184,29 @@ h2 {
 }
 
 .action {
-    opacity: 0;
+    display: none;
     font-size: 20px;
     position: relative;
-    top: 80%;
-    left: 20%;
-    display: inline-flex;
+    bottom: 70px;
+    right: -80px;
     flex-direction: column;
     align-items: end;
     gap: 10px;
     transition: all 0.3s ease-out;
-    z-index: -1;
+    z-index: 3;
 }
 
 
 
 .action-show {
-    opacity: 1;
+    user-select: none;
+    display: inline-flex;
     transition: all 0.3s ease-in;
     z-index: 100;
 }
 
 .action a p {
+    color: var(--second-color);
     background: #191919;
     display: inline;
     padding: 0 10px 0 50px;
@@ -214,55 +217,51 @@ h2 {
 .action a {
     color: var(--second-color);
     text-decoration: none;
-    clip-path: inset(0 0 0 89%);
-}
-
-.action a:hover,
-.action:hover {
-    clip-path: inset(0 0% 0 0);
-    transition: all 0.3s ease-in;
+    color: var(--hover-button-color);
 }
 
 .main-body-p {
-    background: #1919198c;
-    padding: 10px 0;
+    padding: 30px 0;
     color: var(--second-color);
     border-radius: 10px;
     cursor: pointer;
     animation-duration: 3s;
     animation-name: show;
     transition: all 0.3s ease-in;
+    z-index: 99;
 }
 
 .main-body-p:hover {
-    background-color: var(--primary-color);
-    outline: 1px solid var(--second-color);
-    scale: 1.2;
-    height: 350px;
+
+    scale: 1.3;
     transition: all 0.3s ease-in;
     z-index: 100;
 }
+.proyects-body:has(.main-body-p:hover)
+.main-body-p:not(:hover){
+    filter: grayscale(1) brightness(50%);
+}
+
 
 .main-body-p {
+    max-width: 350px;
     min-width: 250px;
-    width: 80%;
-    height: 250px;
+    width: 100%;
+    height: 100%;
     text-align: center;
 }
 
 .main-img {
-    margin: 10px 0;
-    height: 73%;
+    height: 100%;
     max-height: 200px;
+    z-index: -1;
 }
 
 .proyects-body img {
     position: relative;
-    bottom: 20%;
-    width: 80%;
+    width: 100%;
     border-radius: 5px;
 }
-
 .proyects-t {
     opacity: 0;
     position: relative;
@@ -281,16 +280,19 @@ h2 {
     transition: all 0.3s ease-in;
 }
 
-.proyects-t img {
-    width: 30px;
-    margin: 0 10px;
-}
 
 .proyects-title {
-    display: inline;
     position: relative;
-    bottom: 20%;
     font-size: 25px;
+    display: none;
+}
+.title-show{
+    display: inline !important;
+    top: 50px;
+    padding: 10 0px;
+    background: #161a3088;
+    border-radius: 10px;
+    z-index: 4;
 }
 
 .footer {
@@ -421,7 +423,9 @@ textarea {
     right: 32%;
     animation: success 5s;
 }
-
+.rrss-container{
+    justify-content: space-around;
+}
 @keyframes show {
     from {
         opacity: 0;
@@ -549,8 +553,8 @@ textarea {
 
 @media screen and (max-width: 768px) {
     .proyects-body img {
-        width: 80%;
-        height: 75%;
+        width: 100%;
+        height: 100%;
     }
 
     .presentation img {
@@ -574,9 +578,6 @@ textarea {
         margin-left: 5%;
     }
 
-    .main-body-p{
-        height: 300px;
-    }
     .container-t {
         display: flex;
         justify-content: center;
@@ -596,4 +597,59 @@ textarea {
         flex-wrap: wrap;
     }
 
+}
+@media screen and (max-width: 400px) {
+    .proyects-body img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .presentation img {
+        width: 80%;
+    }
+
+    .presentation div {
+        min-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h1,
+    h2 {
+        margin-left: 5%;
+    }
+
+    .container-t {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        text-align: center;
+    }
+
+    .container-t img {
+        width: 150px;
+    }
+
+    .action {
+        left: 10%;
+    }
+    .skill-body div{
+        flex-wrap: wrap;
+    }
+    .rrss-container p{
+        font-size: 0.8rem;
+    }
+    .rrss-container{
+        gap: 0;
+    }
+    .modal-contact{
+        width: 100%;
+    }
 }

@@ -5,17 +5,6 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { VisibilityObserver } from '../hook/IntersectionObserver'
 
 export const Proyects = () => {
-    const show = (id) => {
-        const container = document.getElementById(id)
-        container.firstChild.classList.add('action-show')
-        container.lastChild.classList.add('proyects-show')
-    }
-    const hidden = (id) => {
-        const container = document.getElementById(id)
-        container.firstChild.classList.remove('action-show')
-        container.lastChild.classList.remove('proyects-show')
-    }
-
 
     const siteProyects = [
         {
@@ -83,9 +72,40 @@ export const Proyects = () => {
                 name_t: 'REACTJS',
                 src: "src/img/React.svg"
             }]
+        },
+
+        {
+            id: 4,
+            name: 'Game catalog',
+            img: 'src/img/gameCatalog.png',
+            src: 'https://game-catalog-by-hernandez.netlify.app/',
+            git: 'https://github.com/soyHernandez/game_catalog',
+            tecnology: [{
+                id_t: 1,
+                name_t: 'HTML5',
+                src: "src/img/HTML5.svg"
+            },
+            {
+                id_t: 2,
+                name_t: 'CSS3',
+                src: "src/img/css3.svg"
+            },
+            {
+                id_t: 3,
+                name_t: 'REACTJS',
+                src: "src/img/React.svg"
+            }]
         }
 
     ]
+    const showInfo = (e)=>{
+       e.target.firstChild.classList.add('title-show')
+       e.target.lastChild.classList.add('action-show')
+    }
+    const hiddeInfo = (e)=>{
+        e.target.firstChild.classList.remove('title-show')
+        e.target.lastChild.classList.remove('action-show')
+    }
 
 
     const [visible, setVisible] = useState(false)
@@ -98,23 +118,12 @@ export const Proyects = () => {
                         siteProyects.map(res => {
 
                             return (
-                                    <div key={res.id} id={res.id} className='main-body-p' onMouseEnter={() => show(res.id)} onMouseLeave={() => hidden(res.id)}>
+                                    <div key={res.id} id={res.id }  onMouseEnter={showInfo} onMouseLeave={hiddeInfo} className='main-body-p' >
+                                        <p className='proyects-title'><b>{res.name}</b></p>
+                                        <img className='main-img' type="image/svg+xml" src={res.img} alt={res.name}/>
                                         <div className='action'>
                                             <a href={res.src} target='blank'><p>Demo</p><FontAwesomeIcon icon={faPlay} /></a>
                                             <a href={res.git} target='blank'><p>Repository</p><FontAwesomeIcon icon={faGithub} /></a>
-                                        </div>
-                                        <img className='main-img' src={res.img} alt={res.name} />
-                                        <br />
-                                        <p className='proyects-title'><b>{res.name}</b></p>
-                                        <div className='proyects-t'>
-                                            <p><b>Tecnology:</b></p>
-                                            {
-                                                res.tecnology.map(res_t => {
-                                                    return (
-                                                        <img key={res_t.id_t} src={res_t.src} alt={res_t.name_t} />
-                                                    )
-                                                })
-                                            }
                                         </div>
                                     </div>
                             )
